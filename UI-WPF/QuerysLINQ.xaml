@@ -1,0 +1,94 @@
+﻿<Window x:Class="UI_WPF.QuerysLINQ"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI_WPF"
+        mc:Ignorable="d"
+        Title="QuerysLINQ" Height="auto" Width="900"
+        Background="#2E2E2E">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="10 10 10 10">
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="1. Query para devolver objeto customer" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn1_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="2. Query para devolver todos los productos sin stock" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn2_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="3. Query para devolver todos los productos que tienen stock y que cuestan más de 3 por unidad" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn3_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="4. Query para devolver todos los customers de la Región WA" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn4_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="5. Query para devolver el primer elemento o nulo de una lista de productos donde el ID de producto sea igual a 789" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn5_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="6. Query para devolver los nombre de los Customers. Mostrarlos en Mayuscula y en Minuscula." Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn6_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="7. Query para devolver Join entre Customers y Orders donde los customers sean de la Región WA y la fecha de orden sea mayor a 1/1/1997." Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn7_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="8. Query para devolver los primeros 3 Customers de la Región WA" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn8_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="9. Query para devolver la lista de productos ordenados por nombre" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn9_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="10. Query para devolver lista de productos ordenados por unit in stock de mayor a menor" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn10_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="11. Query para devolver las distintas categorías asociadas a los productos" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn11_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="12. Query para devolver el primer elemento de una lista de productos" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn12_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="10 5 10 5">
+                <TextBlock Text="13. Query para devolver los customer con la cantidad de ordenes asociadas" Margin="0,0,10,5" Foreground="White"/>
+                <Button Content="Ejecutar" Click="Btn13_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1">
+            <ListBox x:Name="listResults" Margin="10">
+                <ListBox.Resources>
+                    <Style TargetType="ScrollViewer">
+                        <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+                    </Style>
+                </ListBox.Resources>
+            </ListBox>
+        </ScrollViewer>
+    </Grid>
+    
+</Window>

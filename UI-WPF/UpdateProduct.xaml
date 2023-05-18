@@ -1,0 +1,62 @@
+﻿<Window x:Class="Practica_EntityFramework.UpdateProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Insertar Producto" Height="370" Width="400"
+        Background="#2E2E2E"
+        Loaded="Window_Loaded">
+    <Grid Margin="0,0,0,23">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="ID:" Foreground="White" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Margin="36,0,0,0" x:Name="txtProductID" HorizontalAlignment="Left" VerticalAlignment="Center" Width="60" PreviewTextInput="ValidateNumber" MaxLength="6"/>
+        <Button Grid.Column="1" Content="Buscar" Margin="163,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Name="Search" Click="Search_Click" />
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Nombre:" Foreground="White" />
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="10,0,0,0" Width="200" x:Name="txtProductName" />
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Proveedor:" Foreground="White" />
+        <ComboBox Grid.Row="2" Grid.Column="1" Margin="10,0,0,0" Width="200" x:Name="cmbSupplier" />
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Categoría:" Foreground="White" />
+        <ComboBox Grid.Row="3" Grid.Column="1" Margin="10,0,0,0" Width="200" x:Name="cmbCategory" />
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Cantidad por unidad:" Foreground="White" />
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="10,0,0,0" Width="200" x:Name="txtQuantityPerUnit"/>
+
+        <Label Grid.Row="5" Grid.Column="0" Content="Precio unitario:" Foreground="White" />
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="10,0,0,0" Width="200" x:Name="txtUnitPrice" PreviewTextInput="ValidatePrice" MaxLength="24"/>
+
+        <Label Grid.Row="6" Grid.Column="0" Content="Unidades en Stock" Foreground="White" />
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="10,0,0,0" Width="200" x:Name="txtUnitsInStock" PreviewTextInput="ValidateNumber" MaxLength="4"/>
+
+        <Label Grid.Row="7" Grid.Column="0" Content="Unidades Ordenadas:" Foreground="White" />
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="10,0,0,0" Width="200" x:Name="txtUnitsOnOrder" PreviewTextInput="ValidateNumber" MaxLength="4"/>
+
+        <Label Grid.Row="8" Grid.Column="0" Content="Unidades Reordenadas:" Foreground="White" />
+        <TextBox Grid.Row="8" Grid.Column="1" Margin="10,0,0,0" Width="200" x:Name="txtReorderLevel" PreviewTextInput="ValidateNumber" MaxLength="4"/>
+
+        <Label Grid.Row="9" Grid.Column="0" Content="Está discontinuado?" Foreground="White" />
+        <CheckBox Grid.Row="9" Grid.Column="1" Margin="16,5,0,0" x:Name="chkDiscontinued" HorizontalAlignment="Left" Width="20" Height="33" VerticalAlignment="Top"/>
+
+        <Button Grid.Row="10" Grid.ColumnSpan="2" Width="80" Height="30" Margin="0,20,0,0" Content="Guardar" Click="BtnSave_Click" />
+        <Button Grid.Row="10" Width="80" Height="30" Margin="158,20,28,0" Content="Borrar" Click="BtnDelete_Click" Grid.Column="1" />
+
+    </Grid>
+
+</Window>
