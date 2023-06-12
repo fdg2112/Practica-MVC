@@ -1,0 +1,36 @@
+﻿@model List<UI_MVC.Models.ProductView>
+
+@{
+    ViewBag.Title = "Product Page";
+}
+
+<h1>Este es el Index de Productos</h1>
+<div>
+    @Html.ActionLink("Agregar nuevo Producto", "Insert", "Product")
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id Producto</th>
+                <th>Nombre de Producto</th>
+                <th>Stock</th>
+                <th>Precio</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductID</td>
+                    <td>@product.ProductName</td>
+                    <td>@product.UnitsInStock</td>
+                    <td>@product.UnitPrice</td>
+                    <td>@Html.ActionLink("Borrar", "Delete", new { id = product.ProductID })</td>
+                    <td>@Html.ActionLink("Editar", "Edit", new { id = product.ProductID })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

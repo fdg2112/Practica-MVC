@@ -1,0 +1,15 @@
+﻿@model UI_MVC.Models.ProductView
+
+@{
+    ViewBag.Title = "Insert Product Page";
+}
+
+<h1>Agregar Producto</h1>
+
+@using (Html.BeginForm("Insert", "Product", FormMethod.Post))
+{
+    <label>Nombre del Producto</label> @Html.TextBoxFor(p => p.ProductName)
+    <label>Precio</label> @Html.TextBoxFor(p => p.UnitPrice)
+    <label>Stock</label> @Html.TextBoxFor(p => p.UnitsInStock)
+    <input type="submit" class="btn btn-success" value="Guardar"/>
+}

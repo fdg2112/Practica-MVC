@@ -3,31 +3,79 @@
 }
 
 <main>
-    <section class="row" aria-labelledby="aspnetTitle">
-        <h1 id="title">ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-        <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-
-    <div class="row">
-        <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-            <h2 id="gettingStartedTitle">Getting started</h2>
-            <p>
-                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                enables a clean separation of concerns and gives you full control over markup
-                for enjoyable, agile development.
-            </p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="librariesTitle">
-            <h2 id="librariesTitle">Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </section>
-        <section class="col-md-4" aria-labelledby="hostingTitle">
-            <h2 id="hostingTitle">Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </section>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3">
+                <img src="~/Resources/Rhönbräu Klosterbier.jpg" class="card-img-top" alt="Imagen 1" style="max-height: 200px;">
+                <div class="card-header">Producto en Oferta!</div>
+                <div class="card-body">
+                    <h5 class="card-title">@Model.ProductWithMaxStock.ProductName</h5>
+                    <p class="card-text">Precio: @Model.ProductWithMaxStock.UnitPrice</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3">
+                <img src="~/Resources/Geitost.jpg" class="card-img-top" alt="Imagen 2" style="max-height: 200px;">
+                <div class="card-header">Nuestro producto más barato</div>
+                <div class="card-body">
+                    <h5 class="card-title">@Model.ProductWithMinPrice.ProductName</h5>
+                    <p class="card-text">Precio: @Model.ProductWithMinPrice.UnitPrice</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3">
+                <img src="~/Resources/Chef Anton's Gumbo Mix.jpg" class="card-img-top" alt="Imagen 2" style="max-height: 200px;">
+                <div class="card-header">Por agotarse! Compralo ahora!</div>
+                <div class="card-body">
+                    <h5 class="card-title">@Model.ProductWithMinStock.ProductName</h5>
+                    <p class="card-text">Precio: @Model.ProductWithMinStock.UnitPrice</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3">
+                <img src="~/Resources/Louisiana Hot Spiced Okra.jpg" class="card-img-top" alt="Imagen 4" style="max-height: 200px;">
+                <div class="card-header">El producto más comprado!</div>
+                <div class="card-body">
+                    <h5 class="card-title">@Model.MostPurchasedProduct.ProductName</h5>
+                    <p class="card-text">Precio: @Model.MostPurchasedProduct.UnitPrice</p>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
+
+<style>
+    body {
+        background: linear-gradient(to top, #D3959B, #BFE6BA);
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 10px;
+        height: 100%;
+        transition: transform 0.3s;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h5 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .card p {
+            margin-bottom: 3px;
+        }
+</style>

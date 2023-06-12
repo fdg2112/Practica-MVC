@@ -52,6 +52,7 @@ namespace Logic
                 if (product == null) throw new ArgumentNullException("El producto no puede ser nulo");
                 if (string.IsNullOrEmpty(product.ProductName)) throw new ArgumentNullException("El campo Nombre del producto no puede estar vacío");
                 if (product.ProductName.Length > 40) throw new ArgumentException("El límite del campo Nombre de Producto es de 40 caracteres");
+                if (product.QuantityPerUnit is null) product.QuantityPerUnit = "";
                 if (product.QuantityPerUnit.Length > 20) throw new ArgumentException("El límite del campo Cantidad por Unidad es de 20 caracteres");
                 _context.Products.Add(product);
                 _context.SaveChanges();
@@ -133,6 +134,38 @@ namespace Logic
             catch (Exception ex)
             {
                 throw new Exception("Ha ocurrido un error al intentar modificar el producto. " + ex.Message);
+            }
+        }
+
+        public Products GetProductWithMaxStock()
+        {
+            using (var context = new NorthwindContext())
+            {
+                return context.Products.OrderByDescending(p => p.UnitsInStock).FirstOrDefault();
+            }
+        }
+
+        public Products GetProductWithMinStock()
+        {
+            using (var context = new NorthwindContext())
+            {
+                return context.Products.OrderBy(p => p.UnitsInStock).FirstOrDefault();
+            }
+        }
+
+        public Products GetProductWithMinPrice()
+        {
+            using (var context = new NorthwindContext())
+            {
+                return context.Products.OrderBy(p => p.UnitPrice).FirstOrDefault();
+            }
+        }
+
+        public Products GetMostPurchasedProduct()
+        {
+            using (var context = new NorthwindContext())
+            {
+                return context.Products.OrderByDescending(p => p.UnitsOnOrder).FirstOrDefault();
             }
         }
 
